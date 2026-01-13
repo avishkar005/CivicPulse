@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      spacing="20"
+      alignment="CENTER">
+
+    <Label text="Welcome to CivicPulse 👋" styleClass="section-title"/>
+    <Label text="Report issues • Track progress • Improve your city"
+           styleClass="sub-heading"/>
+
+    <HBox spacing="20">
+        <VBox styleClass="card">
+            <Label text="12" styleClass="section-title"/>
+            <Label text="Issues Reported"/>
+        </VBox>
+
+        <VBox styleClass="card">
+            <Label text="5" styleClass="section-title"/>
+            <Label text="In Progress"/>
+        </VBox>
+
+        <VBox styleClass="card">
+            <Label text="7" styleClass="section-title"/>
+            <Label text="Resolved"/>
+        </VBox>
+    </HBox>
+
+</VBox>

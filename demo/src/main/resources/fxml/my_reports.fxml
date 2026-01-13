@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controller.MyReportsController"
+      spacing="20"
+      styleClass="content-pane">
+
+    <!-- HEADER -->
+    <VBox spacing="4">
+        <Label text="My Reports" styleClass="section-title"/>
+        <Label text="Track issues you have reported"
+               styleClass="sub-heading"/>
+    </VBox>
+
+    <!-- STATS CARDS -->
+    <HBox spacing="16">
+        <VBox styleClass="card" prefWidth="200">
+            <Label text="Total Reports" styleClass="profile-label"/>
+            <Label fx:id="totalCount" styleClass="profile-value"/>
+        </VBox>
+
+        <VBox styleClass="card" prefWidth="200">
+            <Label text="Pending" styleClass="profile-label"/>
+            <Label fx:id="pendingCount" styleClass="profile-value"/>
+        </VBox>
+
+        <VBox styleClass="card" prefWidth="200">
+            <Label text="Resolved" styleClass="profile-label"/>
+            <Label fx:id="resolvedCount" styleClass="profile-value"/>
+        </VBox>
+    </HBox>
+
+    <!-- FILTERS -->
+    <HBox spacing="12">
+        <TextField fx:id="searchField"
+                   promptText="Search by title"
+                   prefWidth="200"/>
+
+        <ComboBox fx:id="categoryFilter"
+                  promptText="Category"
+                  prefWidth="160"/>
+
+        <ComboBox fx:id="statusFilter"
+                  promptText="Status"
+                  prefWidth="160"/>
+    </HBox>
+
+    <!-- TABLE -->
+    <TableView fx:id="table"
+               prefHeight="420">
+
+        <columns>
+            <TableColumn fx:id="titleCol" text="Title"/>
+            <TableColumn fx:id="categoryCol" text="Category"/>
+            <TableColumn fx:id="statusCol" text="Status"/>
+            <TableColumn fx:id="dateCol" text="Date"/>
+        </columns>
+    </TableView>
+
+</VBox>

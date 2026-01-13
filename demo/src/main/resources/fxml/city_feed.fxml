@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controller.CityFeedController"
+      spacing="16"
+      styleClass="content-pane">
+
+    <!-- HEADER -->
+    <VBox spacing="4">
+        <Label text="City Feed – Pune"
+               styleClass="section-title"/>
+        <Label text="Live updates and issues reported by citizens"
+               styleClass="sub-heading"/>
+    </VBox>
+
+    <!-- FEED LIST -->
+    <ListView fx:id="feedList"
+              VBox.vgrow="ALWAYS"
+              styleClass="card"/>
+</VBox>

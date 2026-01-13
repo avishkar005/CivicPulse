@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.web.WebView?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controller.MapViewController"
+      spacing="16"
+      styleClass="content-pane">
+
+    <!-- HEADER -->
+    <Label text="City Issues Map" styleClass="section-title"/>
+
+    <Label text="View reported issues across the city in real time"
+           styleClass="sub-heading"/>
+
+    <!-- LEGEND -->
+    <HBox spacing="20" styleClass="card">
+        <Label text="🔴 Pending"/>
+        <Label text="🟠 In Progress"/>
+        <Label text="🟢 Resolved"/>
+    </HBox>
+
+    <!-- MAP -->
+    <StackPane VBox.vgrow="ALWAYS" styleClass="card">
+        <WebView fx:id="mapView"/>
+    </StackPane>
+
+</VBox>

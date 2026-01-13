@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.RegisterController">
+
+    <!-- FULL WINDOW BACKGROUND -->
+    <StackPane styleClass="auth-container"
+               AnchorPane.topAnchor="0"
+               AnchorPane.bottomAnchor="0"
+               AnchorPane.leftAnchor="0"
+               AnchorPane.rightAnchor="0">
+
+        <VBox spacing="18"
+              alignment="CENTER"
+              maxWidth="360">
+
+            <Label text="Create Account" styleClass="app-title"/>
+            <Label text="Join CivicPulse today" styleClass="subtitle"/>
+
+            <TextField fx:id="nameField"
+                       promptText="Full Name"
+                       maxWidth="300"/>
+
+            <TextField fx:id="emailField"
+                       promptText="Email Address"
+                       maxWidth="300"/>
+
+            <PasswordField fx:id="passwordField"
+                           promptText="Password"
+                           maxWidth="300"/>
+
+            <PasswordField fx:id="confirmPasswordField"
+                           promptText="Confirm Password"
+                           maxWidth="300"/>
+
+            <Button text="Register"
+                    onAction="#handleRegister"
+                    styleClass="primary-btn"
+                    maxWidth="300"/>
+
+            <Hyperlink text="Already have an account? Login"
+                       onAction="#goLogin"/>
+
+        </VBox>
+
+    </StackPane>
+</AnchorPane>

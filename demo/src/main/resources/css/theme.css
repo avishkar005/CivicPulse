@@ -1,0 +1,296 @@
+/* =========================
+   GLOBAL
+========================= */
+.root {
+    -fx-font-family: "Segoe UI", "Inter", "Roboto";
+    -fx-background-color: #0f172a;
+}
+
+/* Ensure full window usage */
+.border-pane {
+    -fx-pref-width: 100%;
+    -fx-pref-height: 100%;
+}
+
+/* =========================
+   AUTH SCREENS
+========================= */
+.auth-container {
+    -fx-background-color: linear-gradient(to bottom right, #020617, #020617);
+    -fx-padding: 50;
+    -fx-alignment: center;
+}
+
+.app-title {
+    -fx-font-size: 34px;
+    -fx-text-fill: #38bdf8;
+    -fx-font-weight: bold;
+}
+
+.subtitle {
+    -fx-text-fill: #94a3b8;
+}
+
+/* =========================
+   INPUTS
+========================= */
+.text-field,
+.password-field,
+.text-area,
+.combo-box {
+    -fx-background-color: #020617;
+    -fx-text-fill: #e5e7eb;
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-border-color: #1e293b;
+    -fx-padding: 10;
+}
+
+/* Prompt text */
+.text-field .prompt-text,
+.text-area .prompt-text {
+    -fx-text-fill: #64748b;
+}
+
+/* Focus state */
+.text-field:focused,
+.text-area:focused,
+.combo-box:focused {
+    -fx-border-color: #38bdf8;
+}
+
+/* TextArea background */
+.text-area .content {
+    -fx-background-color: #020617;
+}
+
+/* =========================
+   COMBOBOX DROPDOWN FIX
+========================= */
+.combo-box-popup .list-view {
+    -fx-background-color: #020617;
+}
+
+.combo-box-popup .list-cell {
+    -fx-text-fill: #e5e7eb;
+}
+
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: #1e293b;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.primary-btn {
+    -fx-background-color: linear-gradient(to right, #38bdf8, #2563eb);
+    -fx-text-fill: white;
+    -fx-background-radius: 16;
+    -fx-font-size: 14px;
+    -fx-padding: 10 24;
+    -fx-cursor: hand;
+}
+
+.primary-btn:hover {
+    -fx-opacity: 0.9;
+}
+
+.secondary-btn {
+    -fx-background-color: #020617;
+    -fx-text-fill: #38bdf8;
+    -fx-border-color: #38bdf8;
+    -fx-border-radius: 14;
+    -fx-background-radius: 14;
+}
+
+.secondary-btn:hover {
+    -fx-background-color: #020617;
+    -fx-opacity: 0.85;
+}
+
+.danger-btn {
+    -fx-background-color: #dc2626;
+    -fx-text-fill: white;
+    -fx-background-radius: 14;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+.sidebar {
+    -fx-background-color: #020617;
+    -fx-padding: 20;
+    -fx-spacing: 12;
+    -fx-pref-width: 220;
+}
+
+.sidebar-title {
+    -fx-text-fill: #38bdf8;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.sidebar-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #cbd5f5;
+    -fx-font-size: 14px;
+    -fx-padding: 12 16;
+    -fx-alignment: CENTER_LEFT;
+    -fx-cursor: hand;
+    -fx-background-radius: 10;
+}
+
+.sidebar-btn:hover {
+    -fx-background-color: #1e293b;
+}
+
+/* Active button */
+.sidebar-btn:focused {
+    -fx-background-color: #2563eb;
+    -fx-text-fill: white;
+}
+
+/* =========================
+   DASHBOARD CONTENT
+========================= */
+.content-area {
+    -fx-background-color: transparent;
+    -fx-alignment: center;
+    -fx-pref-width: 100%;
+    -fx-pref-height: 100%;
+}
+
+.content-pane {
+    -fx-padding: 30;
+}
+
+.welcome-text {
+    -fx-text-fill: #e5e7eb;
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+}
+
+/* =========================
+   CARDS
+========================= */
+.card {
+    -fx-background-color: #020617;
+    -fx-padding: 24;
+    -fx-background-radius: 18;
+    -fx-effect: dropshadow(gaussian, black, 25, 0.35, 0, 6);
+}
+
+/* =========================
+   HEADINGS
+========================= */
+.section-title {
+    -fx-font-size: 22px;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.sub-heading {
+    -fx-text-fill: #94a3b8;
+}
+
+/* =========================
+   TABLE VIEW (FIXED & READABLE)
+========================= */
+.table-view {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #020617;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+/* Cell text */
+.table-view .table-cell {
+    -fx-text-fill: #e5e7eb;
+    -fx-font-size: 13px;
+    -fx-padding: 10 12;
+}
+
+/* Rows */
+.table-row-cell {
+    -fx-background-color: transparent;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: rgba(255, 255, 255, 0.02);
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #1e293b;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #2563eb;
+}
+
+/* =========================
+   LIST VIEW (CITY FEED)
+========================= */
+.list-view {
+    -fx-background-color: transparent;
+}
+
+.list-cell {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.list-cell:filled:selected {
+    -fx-background-color: transparent;
+}
+
+/* =========================
+   STATUS COLORS
+========================= */
+.status-pending {
+    -fx-text-fill: #f59e0b;
+    -fx-font-weight: bold;
+}
+
+.status-in-progress {
+    -fx-text-fill: #38bdf8;
+    -fx-font-weight: bold;
+}
+
+.status-resolved {
+    -fx-text-fill: #22c55e;
+    -fx-font-weight: bold;
+}
+
+/* =========================
+   PROFILE
+========================= */
+.profile-label {
+    -fx-text-fill: #94a3b8;
+}
+
+.profile-value {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+/* =========================
+   SCROLLBAR (OPTIONAL POLISH)
+========================= */
+.scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #334155;
+    -fx-background-radius: 6;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: #475569;
+}

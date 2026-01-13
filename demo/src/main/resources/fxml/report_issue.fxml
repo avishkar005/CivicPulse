@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.ReportIssueController">
+
+    <center>
+        <HBox spacing="40" styleClass="content-pane">
+
+            <!-- LEFT : REPORT FORM -->
+            <VBox spacing="18" prefWidth="520">
+
+                <Label text="Report an Issue" styleClass="section-title"/>
+                <Label text="Help improve your city by reporting problems you face"
+                       styleClass="sub-heading"/>
+
+                <TextField fx:id="titleField"
+                           promptText="Issue Title"
+                           styleClass="text-field"/>
+
+                <TextArea fx:id="descriptionArea"
+                          promptText="Describe the issue in detail"
+                          prefRowCount="5"
+                          styleClass="text-area"/>
+
+                <ComboBox fx:id="categoryBox"
+                          promptText="Select Category"
+                          styleClass="combo-box"/>
+
+                <HBox spacing="12">
+                    <Button text="Upload Image"
+                            onAction="#uploadImage"
+                            styleClass="secondary-btn"/>
+
+                    <Button text="Submit Issue"
+                            onAction="#submit"
+                            styleClass="primary-btn"/>
+                </HBox>
+
+            </VBox>
+
+            <!-- RIGHT : INFO / STATS -->
+            <VBox spacing="20" prefWidth="380">
+
+                <VBox styleClass="card" spacing="10">
+                    <Label text="Why report issues?"
+                           styleClass="section-title"/>
+                    <Label text="• Faster resolution by authorities\n"
+                            styleClass="profile-label"/>
+                    <Label text="• Transparent tracking\n"
+                            styleClass="profile-label"/>
+                    <Label text="• Better city planning\n"
+                            styleClass="profile-label"/>
+                </VBox>
+
+                <VBox styleClass="card" spacing="10">
+                    <Label text="Common Issues Reported"
+                           styleClass="section-title"/>
+                    <Label text="🗑 Garbage overflow"
+                           styleClass="profile-value"/>
+                    <Label text="🚧 Potholes and road damage"
+                           styleClass="profile-value"/>
+                    <Label text="💡 Street light not working"
+                           styleClass="profile-value"/>
+                    <Label text="🚰 Water leakage"
+                           styleClass="profile-value"/>
+                </VBox>
+
+                <VBox styleClass="card" spacing="10">
+                    <Label text="Your Impact"
+                           styleClass="section-title"/>
+                    <Label text="Every issue you report helps improve\n"
+                           styleClass="profile-label"/>
+                    <Label text="infrastructure and public services."
+                           styleClass="profile-label"/>
+                </VBox>
+
+            </VBox>
+
+        </HBox>
+    </center>
+
+</BorderPane>
