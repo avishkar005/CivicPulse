@@ -13,6 +13,9 @@ public class FeedPost {
     private final String author;
     private final LocalDateTime time;
 
+    // ✅ ADDED
+    private int likes = 0;
+
     private final ObservableList<Comment> comments =
             FXCollections.observableArrayList();
 
@@ -31,6 +34,15 @@ public class FeedPost {
     public String getCategory() { return category; }
     public String getAuthor() { return author; }
     public LocalDateTime getTime() { return time; }
+
+    // ✅ ADDED
+    public int getLikes() {
+        return likes;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
 
     public ObservableList<Comment> getComments() {
         return comments;

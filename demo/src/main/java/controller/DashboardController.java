@@ -1,19 +1,28 @@
 package controller;
 
+import config.AppState;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.layout.StackPane;
+import service.ApiService;
+import util.SceneUtil;
 
 public class DashboardController {
 
     @FXML
     private StackPane contentArea;
+
+    // 🔥 LOAD DEFAULT PAGE
+    @FXML
+    private void initialize() {
+        loadPage("/fxml/report_issue.fxml");
+    }
+
     @FXML
     private void openCityFeed() {
-    loadPage("/fxml/city_feed.fxml");
-     }
-
+        loadPage("/fxml/city_feed.fxml");
+    }
 
     @FXML
     private void openReportIssue() {
@@ -35,11 +44,28 @@ public class DashboardController {
         loadPage("/fxml/profile.fxml");
     }
 
+    // ✅ LOGOUT FIX
+    @FXML
+    private void handleLogout() {
+
+        ApiService.logout();          // clear JWT
+        AppState.setUserEmail(null);  // clear user
+
+        SceneUtil.switchScene(
+                contentArea,
+                "/fxml/login.fxml",
+                "Login - CivicPulse"
+        );
+    }
+
     private void loadPage(String fxmlPath) {
         try {
-            Node view = FXMLLoader.load(getClass().getResource(fxmlPath));
+            Node view = FXMLLoader.load(
+                    getClass().getResource(fxmlPath)
+            );
             contentArea.getChildren().setAll(view);
         } catch (Exception e) {
+            System.err.println("❌ Failed to load: " + fxmlPath);
             e.printStackTrace();
         }
     }

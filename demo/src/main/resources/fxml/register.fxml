@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.control.*?>
 
 <AnchorPane xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="controller.RegisterController">
 
-    <!-- FULL WINDOW BACKGROUND -->
     <StackPane styleClass="auth-container"
                AnchorPane.topAnchor="0"
                AnchorPane.bottomAnchor="0"
@@ -40,9 +39,16 @@
                            maxWidth="300"/>
 
             <Button text="Register"
-                    onAction="#handleRegister"
                     styleClass="primary-btn"
-                    maxWidth="300"/>
+                    maxWidth="300"
+                    onAction="#handleRegister"/>
+
+            <Button text="Sign up with Google"
+                    styleClass="secondary-btn"
+                    maxWidth="300"
+                    onAction="#handleGoogleLogin"/>
+
+            <Separator maxWidth="300"/>
 
             <Hyperlink text="Already have an account? Login"
                        onAction="#goLogin"/>

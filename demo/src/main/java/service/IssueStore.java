@@ -9,11 +9,11 @@ public class IssueStore {
     private static final ObservableList<Issue> issues =
             FXCollections.observableArrayList();
 
-    public static ObservableList<Issue> getIssues() {
+    public static ObservableList<Issue> getAll() {
         return issues;
     }
 
-    public static void addIssue(Issue issue) {
+    public static void add(Issue issue) {
         issues.add(issue);
     }
 }

@@ -3,22 +3,60 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
 
-<VBox xmlns="http://javafx.com/javafx/21"
+<HBox xmlns="http://javafx.com/javafx/21"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="controller.CityFeedController"
-      spacing="16"
-      styleClass="content-pane">
+      spacing="20"
+      styleClass="content-pane"
+      HBox.hgrow="ALWAYS">
 
-    <!-- HEADER -->
-    <VBox spacing="4">
-        <Label text="City Feed – Pune"
-               styleClass="section-title"/>
-        <Label text="Live updates and issues reported by citizens"
-               styleClass="sub-heading"/>
+    <!-- ================= LEFT : CITY FEED ================= -->
+    <VBox spacing="16" VBox.vgrow="ALWAYS" prefWidth="750">
+
+        <!-- HEADER -->
+        <VBox spacing="4">
+            <Label text="City Feed – Pune"
+                   styleClass="section-title"/>
+            <Label text="Live updates and issues reported by citizens"
+                   styleClass="sub-heading"/>
+        </VBox>
+
+        <!-- FEED LIST -->
+        <ListView fx:id="feedList"
+                  VBox.vgrow="ALWAYS"
+                  styleClass="card"/>
+
     </VBox>
 
-    <!-- FEED LIST -->
-    <ListView fx:id="feedList"
-              VBox.vgrow="ALWAYS"
-              styleClass="card"/>
-</VBox>
+    <!-- ================= RIGHT : CITY CHAT ================= -->
+    <VBox spacing="10"
+          prefWidth="320"
+          styleClass="card"
+          VBox.vgrow="ALWAYS">
+
+        <Label text="City Chat"
+               styleClass="section-title"/>
+
+        <!-- USERS -->
+        <Label text="Active Users"
+               styleClass="sub-heading"/>
+        <ListView fx:id="userList"
+                  prefHeight="120"/>
+
+        <!-- CHAT MESSAGES -->
+        <ListView fx:id="chatList"
+                  VBox.vgrow="ALWAYS"/>
+
+        <!-- INPUT -->
+        <HBox spacing="8">
+            <TextField fx:id="chatField"
+                       promptText="Type message..."
+                       HBox.hgrow="ALWAYS"/>
+            <Button text="Send"
+                    onAction="#sendMessage"
+                    styleClass="primary-btn"/>
+        </HBox>
+
+    </VBox>
+
+</HBox>

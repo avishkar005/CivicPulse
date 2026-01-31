@@ -5,6 +5,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Region?>
 
 <BorderPane xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
@@ -22,11 +23,9 @@
             <Label text="CivicPulse"
                    styleClass="sidebar-title"/>
 
-                   
             <Button text="City Feed"
-                   onAction="#openCityFeed"
-                   styleClass="sidebar-btn"/>
-
+                    onAction="#openCityFeed"
+                    styleClass="sidebar-btn"/>
 
             <Button text="Report Issue"
                     onAction="#openReportIssue"
@@ -43,15 +42,21 @@
             <Button text="Profile"
                     onAction="#openProfile"
                     styleClass="sidebar-btn"/>
+
+            <!-- spacer pushes logout to bottom -->
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <!-- ✅ LOGOUT BUTTON -->
+            <Button text="Logout"
+                    onAction="#handleLogout"
+                    styleClass="sidebar-btn logout-btn"/>
         </VBox>
     </left>
 
     <!-- CENTER CONTENT -->
     <center>
         <StackPane fx:id="contentArea"
-                   styleClass="content-area">
-            <fx:include source="report_issue.fxml"/>
-        </StackPane>
+                   styleClass="content-area"/>
     </center>
 
 </BorderPane>

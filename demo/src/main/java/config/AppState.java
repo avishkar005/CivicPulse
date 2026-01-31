@@ -1,30 +1,38 @@
 package config;
 
-import model.User;
-
 public class AppState {
 
-    private static User currentUser;
-    private static boolean darkMode = true;
+    private static String jwtToken;
+    private static String userEmail;
 
-    private AppState() {
+    private AppState() {}
+
+    /* =========================
+       AUTH STATE
+    ========================= */
+
+    public static void setJwtToken(String token) {
+        jwtToken = token;
     }
 
-    // User session
-    public static User getCurrentUser() {
-        return currentUser;
+    public static String getJwtToken() {
+        return jwtToken;
     }
 
-    public static void setCurrentUser(User user) {
-        currentUser = user;
+    public static void setUserEmail(String email) {
+        userEmail = email;
     }
 
-    // Theme
-    public static boolean isDarkMode() {
-        return darkMode;
+    public static String getUserEmail() {
+        return userEmail;
     }
 
-    public static void toggleTheme() {
-        darkMode = !darkMode;
+    public static boolean isLoggedIn() {
+        return jwtToken != null && !jwtToken.isBlank();
+    }
+
+    public static void clear() {
+        jwtToken = null;
+        userEmail = null;
     }
 }

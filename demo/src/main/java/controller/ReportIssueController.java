@@ -3,6 +3,7 @@ package controller;
 import java.io.File;
 import java.time.LocalDate;
 
+import config.AppState;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
@@ -10,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import model.Issue;
 import model.IssueStatus;
+import service.ApiService;
 import service.IssueStore;
 import util.ValidationUtil;
 
@@ -23,7 +25,6 @@ public class ReportIssueController {
 
     @FXML
     public void initialize() {
-
         categoryBox.getItems().addAll(
                 "Garbage",
                 "Roads",
@@ -66,19 +67,24 @@ public class ReportIssueController {
 
         Issue issue = new Issue(
                 titleField.getText(),
+                descriptionArea.getText(),
                 categoryBox.getValue(),
+                "Pune",
+                AppState.getUserEmail(),
                 IssueStatus.PENDING,
                 LocalDate.now()
         );
 
-        // 🔥 THIS IS THE KEY LINE
-        IssueStore.addIssue(issue);
+        // ✅ send to backend
+        ApiService.submitIssue(issue);
+
+        // ✅ ALSO store locally so MyReports screen can see it
+        IssueStore.add(issue);
 
         ValidationUtil.showSuccess(
                 "Issue submitted successfully!"
         );
 
-        // Reset form
         titleField.clear();
         descriptionArea.clear();
         categoryBox.setValue(null);

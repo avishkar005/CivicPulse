@@ -13,9 +13,11 @@
                AnchorPane.rightAnchor="0"
                styleClass="auth-container">
 
+        <!-- 🔥 IMPORTANT FIX: mouseTransparent MUST be false -->
         <VBox spacing="18"
               alignment="CENTER"
-              maxWidth="360">
+              maxWidth="360"
+              mouseTransparent="false">
 
             <Label text="CivicPulse" styleClass="app-title"/>
             <Label text="Welcome back" styleClass="subtitle"/>
@@ -33,8 +35,16 @@
                     maxWidth="300"
                     onAction="#handleLogin"/>
 
-            <!-- 🔥 FIX IS HERE -->
+            <Button text="Continue with Google"
+                    styleClass="secondary-btn"
+                    maxWidth="300"
+                    onAction="#handleGoogleLogin"/>
+
+            <Separator maxWidth="300"/>
+
+            <!-- 🔥 FIXED: clickable hyperlink -->
             <Hyperlink text="Create new account"
+                       underline="true"
                        onAction="#goToRegister"/>
 
         </VBox>

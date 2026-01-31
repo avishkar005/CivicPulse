@@ -27,7 +27,6 @@ public class MyReportsController {
     @FXML private ComboBox<String> categoryFilter;
     @FXML private ComboBox<IssueStatus> statusFilter;
 
-    // MUST MATCH FXML fx:id
     @FXML private Label totalCount;
     @FXML private Label pendingCount;
     @FXML private Label resolvedCount;
@@ -37,23 +36,30 @@ public class MyReportsController {
     @FXML
     public void initialize() {
 
-        // 🔥 SHARED DATA SOURCE
-        masterData = IssueStore.getIssues();
+        // ✅ USE REAL STORE (not mock)
+        masterData = IssueStore.getAll();
 
         titleCol.setCellValueFactory(c -> c.getValue().titleProperty());
         categoryCol.setCellValueFactory(c -> c.getValue().categoryProperty());
-        statusCol.setCellValueFactory(c -> c.getValue().statusProperty().asString());
+
+        statusCol.setCellValueFactory(c ->
+                Bindings.createStringBinding(
+                        () -> c.getValue().getStatus().name(),
+                        c.getValue().statusProperty()
+                )
+        );
 
         dateCol.setCellValueFactory(cell ->
-            Bindings.createStringBinding(
-                () -> cell.getValue().getDate()
-                        .format(DateTimeFormatter.ofPattern("dd MMM yyyy")),
-                cell.getValue().dateProperty()
-            )
+                Bindings.createStringBinding(
+                        () -> cell.getValue().getDate()
+                                .format(DateTimeFormatter.ofPattern("dd MMM yyyy")),
+                        cell.getValue().dateProperty()
+                )
         );
 
         categoryFilter.setItems(FXCollections.observableArrayList(
-                "Garbage", "Roads", "Water", "Electricity", "Telecom"
+                "Garbage", "Roads", "Electricity", "Water",
+                "Public Safety", "Sanitation", "Other"
         ));
 
         statusFilter.setItems(
